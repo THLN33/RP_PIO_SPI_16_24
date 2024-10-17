@@ -20,12 +20,7 @@ When using both PIOs, you have to make sure to correctly reconfigure the GPIOs t
 
 If DMA is used, you have to detect and wait for the end of the last transfer before sending the next one. The dma_handler() function allows this.
 
-With a PIO frequency of 125 MHz, the transfer of a complete image is done in about 62ms.
- - number of bytes for a complete image: 480 x 320 = 153600
- - number of cycles per transmitted pixel: (24 + 1) = 25
- - the clock division: 2 
-
-The necessary transmission time = 153600 * (2*25) / 125 Mhz = 61.4 ms
+With a PIO frequency of 62.5 MHz, the transfer of a complete image is done in about 62ms.
 
 This works fine, so it remains to integrate it into the TFT_eSPI library if it is useful to you.
 
