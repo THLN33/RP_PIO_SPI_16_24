@@ -1,6 +1,6 @@
 Hello, 
 
-I also use a Raspberry Pi Pico card (RP2040) with an LCD screen managed by the ILI9488 circuit. DMA transfers do not work with the original TFT_eSPI library. The image is displayed with wrong colors.
+I also use a Raspberry Pi Pico card (RP2040) with an LCD screen managed by the ILI9488 circuit. DMA transfers do not work with the original [TFT_eSPI library](https://github.com/Bodmer/TFT_eSPI). The image is displayed with wrong colors.
 
 Indeed, the ILI9488 circuit wired in 4-line SPI (IM[2:0]=111) only accepts the following modes:
 - RGB 1-1-1 mode or 2^(3*1) = 8 colors per pixel (one level per primary color)
