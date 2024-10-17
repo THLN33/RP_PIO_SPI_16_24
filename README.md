@@ -5,6 +5,7 @@ I also use a Raspberry Pi Pico card (RP2040) with an LCD screen managed by the I
 Indeed, the ILI9488 circuit wired in 4-line SPI (IM[2:0]=111) only accepts the following modes:
 - RGB 1-1-1 mode or 2^(3*1) = 8 colors per pixel (one level per primary color)
 - RGB 6-6-6 mode or 2^(3*6) = 262K colors per pixel (2⁶ = 64 levels per primary color)
+
 The transfer of this last mode is necessarily done in groups of 3 bytes (24 bits).
 The other modes (RGB 5-6-5 and 8-8-8) are only available in parallel connection.
 
