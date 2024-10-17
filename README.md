@@ -9,6 +9,8 @@ Indeed, the ILI9488 circuit wired in 4-line SPI (IM[2:0]=111) only accepts the f
 The transfer of this last mode is necessarily done in groups of 3 bytes (24 bits).
 The other modes (RGB 5-6-5 and 8-8-8) are only available in parallel connection.
 
+![RGB 6-6-6](https://github.com/THLN33/RP_PIO_SPI_16_24/blob/main/RGB%206-6-6.png)
+
 The TFT_eSPI library works with a 16-bit RGB 5-6-5 mode. To correctly display an image, the processor must convert the color data to RGB 6-6-6 mode for each pixel and transfer 3 bytes to the ILI9488 graphics controller.
 The idea is to use the PIO to do this conversion, which makes it possible to use DMA for transfers. The processor is thus relieved of this heavy task.
 
@@ -21,6 +23,8 @@ When using both PIOs, you have to make sure to correctly reconfigure the GPIOs t
 If DMA is used, you have to detect and wait for the end of the last transfer before sending the next one. The dma_handler() function allows this.
 
 With a PIO frequency of 62.5 MHz, the transfer of a complete image is done in about 62ms.
+
+![PIO_window_data_zoom](https://github.com/THLN33/RP_PIO_SPI_16_24/blob/main/PIO_window_data_zoom.png)
 
 This works fine, so it remains to integrate it into the TFT_eSPI library if it is useful to you.
 
